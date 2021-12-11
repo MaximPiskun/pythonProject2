@@ -51,11 +51,8 @@ def weather():
 bot = telebot.TeleBot(API_TOKEN)
 controller = {}
 
-button_1 = types.KeyboardButton('Погода сегоня')
+button_1 = types.KeyboardButton('Погода сегодня')
 button_2 = types.KeyboardButton('Погода завтра')
-button_start = types.KeyboardButton('/start')
-main_kb = types.ReplyKeyboardMarkup()
-main_kb.add(button_start)
 weather_kb = types.ReplyKeyboardMarkup()
 weather_kb.add(button_1).add(button_2)
 
@@ -67,3 +64,8 @@ def start_message(message):
                      """,  reply_markup=kb.weather_kb)
     user_id = message.from_user.id
     controller[user_id] = 'start'
+
+def weather_bot(user_id, user_choice):
+    if user_choice == "Погода сегодня":
+        controller[user_id] = 'start'
+        return weather()
