@@ -12,7 +12,7 @@ def weather():
 
 
     URL = 'https://weather.rambler.ru/v-novosibirske/tomorrow/'
-    HEADERS = {''}
+    HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 YaBrowser/20.3.1.197 Yowser/2.5 Safari/537.36'}
     item = 0
     item1 = 0
 
@@ -30,23 +30,16 @@ def weather():
             global item
             soup = BeautifulSoup(html, 'html.parser')
             item = soup.find('div', class_='_1HBR').text
-            i = soup.find('span', class_='_29Kw').text
+            #i = soup.find('span', class_='_29Kw').text
             print('1 - ', item)
 
 
-        parse()
-    URL = 'https://www.accuweather.com/en/ru/novosibirsk/294459/weather-forecast/294459'
-    for i in range(1):
-        def get_content(html):
-            global item1
-            soup = BeautifulSoup(html, 'html.parser')
-            item1 = soup.find('div', class_='temp').text
-            print('2 - ', item1)
-        parse()
+    parse()
 
 
 
-bot = telebot.TeleBot('')
+
+bot = telebot.TeleBot('1954027996:AAE7a6Js8XQVQC7wBzDAwwFuylVGm39gksE')
 controller = {}
 
 button_1 = types.KeyboardButton('Погода сегодня')
