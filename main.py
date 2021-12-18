@@ -60,3 +60,9 @@ def weather_bot(user_id, user_choice):
     if user_choice == "Погода сегодня":
         controller[user_id] = 'start'
         return weather()
+    elif user_choice == "Погода завтра":
+        controller[user_id] = 'start'
+        return weather()
+    else:
+        controller[user_id] = 'start'
+        return "ERROR"
