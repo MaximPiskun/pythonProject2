@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 import telebot
-from config import API_TOKEN
 import keyboards as kb
 
 
@@ -26,13 +25,12 @@ def weather():
             print('error')
 
 
-    for i in range(1):
 
-        def get_content(html):
+    def get_content(html):
             global item
             soup = BeautifulSoup(html, 'html.parser')
             item = soup.find('div', class_='_1HBR').text
-            i = soup.find('span', class_='_29Kw').text  # как ощущается
+            i = soup.find('span', class_='_29Kw').text
             print('1 - ', item)
 
 
@@ -48,7 +46,7 @@ def weather():
 
 
 
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot('')
 controller = {}
 
 button_1 = types.KeyboardButton('Погода сегодня')
